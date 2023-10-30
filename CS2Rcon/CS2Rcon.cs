@@ -8,7 +8,7 @@ namespace CS2Rcon
     public class CS2Rcon : BasePlugin
     {
         public override string ModuleName => "CS2Rcon";
-        public override string ModuleVersion => "1.0.0";
+        public override string ModuleVersion => "1.0.1";
 
         private List<ulong> _rconAccessList = new List<ulong>();
         private const string RCON_NO_ACCESS = "YOU DONT HAVE PERMISSION TO USE THIS COMMAND!";
@@ -17,7 +17,6 @@ namespace CS2Rcon
             this.Log(PluginInfo());
 
             this.ReloadAccessSteamIds();
-
         }
 
         [ConsoleCommand("css_rcon", "Rcon as we know it!")]
@@ -98,7 +97,7 @@ namespace CS2Rcon
 
             if (File.Exists(path))
             {
-                var lines = File.ReadAllLines(path);
+                var lines = File.ReadAllLines(path).ToList().Where(x => !x.StartsWith('#'));
 
                 foreach (var line in lines)
                 {
