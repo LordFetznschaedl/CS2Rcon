@@ -10,7 +10,7 @@ This plugin has a rconAllow.cfg config that allows you to add the permission to 
 !rconinfo - to print the plugin information  
 !rcon - to run server commands from the client  
 !rconreload - to reload the SteamId64 that are allowed to use the rcon command.  
-!rconwho - to print all SteamId64 to the console  
+!rconwho - to print all SteamId64 to the console that are allowed to CS2Rcon
   
 ---
 # installation:  
