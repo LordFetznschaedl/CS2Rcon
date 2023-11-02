@@ -9,7 +9,10 @@ namespace CS2Rcon
     public class CS2Rcon : BasePlugin
     {
         public override string ModuleName => "CS2Rcon";
-        public override string ModuleVersion => "1.1.0";
+        public override string ModuleVersion => "1.1.1";
+        public override string ModuleAuthor => "LordFetznschaedl";
+        public override string ModuleDescription => "Allows for server commands to be executed from the client";
+
 
         private List<ulong> _rconAccessList = new List<ulong>();
         private FileSystemWatcher? _fileWatcher = null;
@@ -20,6 +23,7 @@ namespace CS2Rcon
         public override void Load(bool hotReload)
         {
             this.Log(PluginInfo());
+            this.Log(this.ModuleDescription);
 
             this._rconAccessPath = Path.Join(this.ModuleDirectory, "rconAllow.cfg");
 
@@ -180,7 +184,7 @@ namespace CS2Rcon
 
         private string PluginInfo()
         {
-            return $"Plugin: {this.ModuleName} - Version: {this.ModuleVersion} by LordFetznschaedl";
+            return $"Plugin: {this.ModuleName} - Version: {this.ModuleVersion} by {this.ModuleAuthor}";
         }
 
         private void PrintToPlayerOrServer(string message, CCSPlayerController? player = null)
@@ -198,7 +202,6 @@ namespace CS2Rcon
 
         private void Log(string message)
         {
-            Console.BackgroundColor = ConsoleColor.White;
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine($"[{this.ModuleName}] {message}");
             Console.ResetColor();
