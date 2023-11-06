@@ -3,6 +3,7 @@ using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Core.Attributes.Registration;
 using CounterStrikeSharp.API.Modules.Commands;
 using CounterStrikeSharp.API.Modules.Entities;
+using CounterStrikeSharp.API.Modules.Utils;
 
 namespace CS2Rcon
 {
@@ -18,7 +19,7 @@ namespace CS2Rcon
         private FileSystemWatcher? _fileWatcher = null;
         private DateTime _fileWatcherLastFileWriteTime = DateTime.MinValue;
         private string _rconAccessPath = string.Empty;   
-        private const string RCON_NO_ACCESS = "YOU DONT HAVE PERMISSION TO USE THIS COMMAND!";
+        private string RCON_NO_ACCESS = $"{ChatColors.Red} YOU DONT HAVE PERMISSION TO USE THIS COMMAND!";
 
         public override void Load(bool hotReload)
         {
