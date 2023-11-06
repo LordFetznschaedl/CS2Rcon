@@ -10,7 +10,7 @@ namespace CS2Rcon
     public class CS2Rcon : BasePlugin
     {
         public override string ModuleName => "CS2Rcon";
-        public override string ModuleVersion => "1.1.1";
+        public override string ModuleVersion => "1.1.2";
         public override string ModuleAuthor => "LordFetznschaedl";
         public override string ModuleDescription => "Allows for server commands to be executed from the client";
 
@@ -30,7 +30,6 @@ namespace CS2Rcon
 
             this.ReloadAccessSteamIds();
             this.SetupRconAccessFileWatcher();
-
         }
 
         public override void Unload(bool hotReload)
